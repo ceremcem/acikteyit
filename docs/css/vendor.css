@@ -667,6 +667,10 @@ tr.strikeout {
     background-position: 50% 50%;
 }
 
+.strike-out {
+    text-decoration: line-through;
+}
+
 * {
   box-sizing: border-box;
 }
