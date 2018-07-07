@@ -652,6 +652,11 @@ th.rotate > div > span {
     border-left: 0;
 }
 
+html,
+body {
+    overscroll-behavior-y: contain;
+}
+
 .nowrap {
     white-space: nowrap;
 }
