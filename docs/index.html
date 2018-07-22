@@ -12,9 +12,9 @@
     <link rel="icon" sizes="192x192" href="favicon.ico">
     <title>Açık Teyit</title>
     <script>if (typeof module === 'object') {window.module = module; module = undefined;}</script>
-    <script src="js/vendor.js"></script>
+    <script src="vendor.js"></script>
     <script>if (window.module) module = window.module;</script>
-    <link rel="stylesheet" href="css/vendor.css">
+    <link rel="stylesheet" href="vendor.css">
   </head>
   <body ontouchstart>
     <div class="pusher" id="main-output"> 
@@ -24,34 +24,14 @@
         </div>
       </div>
       <div class="ui active big text loader" id="main-output">
-        <p>Loading Application... (%<b id="percent"></b>)</p>
+        <p>Loading Application... </p>
         <div class="ui progress teal" id="percentProgress">
-          <div class="bar" style="min-width: 0 !important;"></div>
+          <div class="bar" style="min-width: 0 !important;">
+            <div class="progress"></div>
+          </div>
         </div>
-        <div class="ui message red" id="loading-error">Something went wrong while loading. Try to reload the page.</div>
       </div>
     </div>
-    <pre id="debugDiv"></pre>
-    <script>var toString$ = {}.toString;
-(function(){
-  var old, logger;
-  old = console.log;
-  logger = document.getElementById('debugDiv');
-  return console.log = function(){
-    var i$, len$, arg, results$ = [];
-    old.apply(console, arguments);
-    try {
-      for (i$ = 0, len$ = arguments.length; i$ < len$; ++i$) {
-        arg = arguments[i$];
-        results$.push(logger.innerHTML += toString$.call(arg).slice(8, -1) === 'Object'
-          ? JSON && JSON.strigify ? JSON.stringify(arg, undefined, 2) : "Something we can not convert with JSON.stringify"
-          : arg + "<br />");
-      }
-      return results$;
-    } catch (e$) {}
-  };
-})();
-    </script>
     <div id="dynamic-script"></div>
     <script>var addScript;
 addScript = function(scriptData){
