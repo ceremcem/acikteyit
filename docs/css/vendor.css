@@ -235,6 +235,11 @@ Color Scheme: http://paletton.com/palette.php?uid=c1T3n2J040kpEKzpEKzbEPSOEyiNk9
   color: #3B83C0;
 }
 
+html,
+body {
+    overscroll-behavior-y: contain;
+}
+
 th.rotate {
   /* Something you can count on */
   white-space: nowrap;
@@ -279,11 +284,6 @@ th.rotate > div > span {
 .compact-table tr td:last-child,
 .compact-table tr th:last-child {
     border-left: 0;
-}
-
-html,
-body {
-    overscroll-behavior-y: contain;
 }
 
 .nowrap {

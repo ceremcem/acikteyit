@@ -32,59 +32,6 @@
       </div>
     </div>
     <div id="dynamic-script"></div>
-    <script>var addScript;
-addScript = function(scriptData){
-  var newdiv, script, e;
-  newdiv = document.createElement('div');
-  script = document.createElement('script');
-  script.innerHTML = scriptData;
-  newdiv.appendChild(script);
-  try {
-    return document.getElementById('dynamic-script').appendChild(newdiv);
-  } catch (e$) {
-    e = e$;
-    return console.warn("This is a workaround in templates/load-app.ls because window.onload is not firing in electron.");
-  }
-};
-$.ajax({
-  url: 'js/app.js',
-  type: 'GET',
-  success: function(data){
-    console.log("page loaded. data length: ", data.length);
-    return addScript(data);
-  },
-  error: function(e){
-    var msg;
-    msg = "something went wrong while loading page: ";
-    console.log(msg, e);
-    return $('#loading-error').show();
-  },
-  xhr: function(){
-    var xhr;
-    $('#percentProgress').progress({
-      showActivity: false
-    });
-    $('#loading-error').hide();
-    xhr = new window.XMLHttpRequest();
-    xhr.upload.addEventListener('progress', function(ev){
-      var percentComplete;
-      if (ev.lengthComputable) {
-        percentComplete = ev.loaded / ev.total;
-        return console.log("Upload complete % " + percentComplete * 100);
-      }
-    }, false);
-    xhr.addEventListener('progress', function(ev){
-      var percentComplete, percentInt;
-      if (ev.lengthComputable) {
-        percentComplete = ev.loaded / ev.total;
-        percentInt = parseInt(percentComplete * 100);
-        $('#percent').text(percentInt);
-        return $('#percentProgress').progress("set progress", percentInt);
-      }
-    }, false);
-    return xhr;
-  }
-});
-    </script>
+    <script src="js/app.js"></script>
   </body>
 </html>
