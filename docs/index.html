@@ -12,9 +12,9 @@
     <link rel="icon" sizes="192x192" href="favicon.ico">
     <title>Açık Teyit</title>
     <script>if (typeof module === 'object') {window.module = module; module = undefined;}</script>
-    <script src="vendor.js"></script>
+    <script src="js/vendor.js"></script>
     <script>if (window.module) module = window.module;</script>
-    <link rel="stylesheet" href="vendor.css">
+    <link rel="stylesheet" href="css/vendor.css">
   </head>
   <body ontouchstart>
     <div class="pusher" id="main-output"> 
@@ -48,7 +48,7 @@ addScript = function(scriptData){
   }
 };
 $.ajax({
-  url: 'app.js',
+  url: 'js/app.js',
   type: 'GET',
   success: function(data){
     console.log("page loaded. data length: ", data.length);
