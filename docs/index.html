@@ -32,6 +32,14 @@
           </div>
         </div>
       </div>
+      <div class="row" id="errorSection" style="display: none">
+        <div class="column"> 
+          <div class="ui red message"> 
+            <h3 class="ui header">ERROR </h3>
+            <pre id="errorMessage"></pre>
+          </div>
+        </div>
+      </div>
       <script>oneDecimal = function(inp) {
     var appSec = parseInt(inp / 1000);
     var appMSec = parseInt((inp - appSec * 1000) / 100);
@@ -57,6 +65,34 @@ update()
 
       </script>
     </div>
+    <script>function htmlEncode ( html )
+{
+    html = $.trim(html);
+    return html.replace(/[&"'\<\>]/g, function(c)
+    {
+          switch (c)
+          {
+              case "&":
+                return "&amp;";
+              case "'":
+                return "&#39;";
+              case '"':
+                return "&quot;";
+              case "<":
+                return "&lt;";
+              default:
+                return "&gt;";
+          }
+    });
+};
+window.loadingError = function(err){
+    if(err){
+        document.getElementById("errorSection").style.display = 'block';
+        document.getElementById("errorMessage").innerHTML = htmlEncode(err);
+    }
+}
+
+    </script>
     <script src="js/app.js"></script>
   </body>
 </html>
