@@ -10,28 +10,53 @@
     <meta name="google" value="notranslate">
     <link rel="icon" href="images/data-arrived.ico">
     <title>Açık Teyit</title>
+    <script>
+      window.headStart = Date.now()
+      
+    </script>
     <script>if (typeof module === 'object') {window.module = module; module = undefined;}</script>
-    <script src="js/vendor.js"></script>
+    <script id="vendor" src="js/vendor.js"></script>
     <script>if (window.module) module = window.module;</script>
     <link rel="stylesheet" href="css/vendor.css">
   </head>
   <body ontouchstart>
-    <div class="pusher" id="main-output"> 
-      <div class="ui centered grid">
-        <div class="row">
-          <div class="column" style="padding-top: 10%"><img class="ui small centered image" src="scadajs-logo-long.svg"></div>
-        </div>
+    <div class="ui centered grid" id="content">
+      <div class="row">
+        <div class="column" style="padding-top: 10%"><img class="ui small centered image" src="images/scadajs-logo-long.svg"></div>
       </div>
-      <div class="ui active big text loader" id="main-output">
-        <p>Loading Application... </p>
-        <div class="ui progress teal" id="percentProgress">
-          <div class="bar" style="min-width: 0 !important;">
-            <div class="progress"></div>
+      <div class="row">
+        <div class="column"> 
+          <div class="ui active centered inline big text loader indeterminate">
+            <p>Loading Application...</p>
+            <div id="timer"> </div>
           </div>
         </div>
       </div>
+      <script>oneDecimal = function(inp) {
+    var appSec = parseInt(inp / 1000);
+    var appMSec = parseInt((inp - appSec * 1000) / 100);
+    return appSec + '.' + appMSec
+}
+
+var appStart = Date.now()
+var estimatedVendorToAppSizeRatio = 2;
+headDuration = appStart - window.headStart;
+appDuration = estimatedVendorToAppSizeRatio * headDuration;
+interval = 100;
+timer = document.getElementById("timer");
+update = function(){
+    var left = appStart + appDuration - Date.now()
+    timer.innerHTML = oneDecimal(left) + " s";
+    if (left > 0){
+        setTimeout(update, interval);
+    } else {
+        timer.innerHTML = "Opening..."
+    }
+}
+update()
+
+      </script>
     </div>
-    <div id="dynamic-script"></div>
     <script src="js/app.js"></script>
   </body>
 </html>
