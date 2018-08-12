@@ -34,6 +34,10 @@ body {
     white-space: nowrap;
 }
 
+.spacer {
+    height: 300px;
+}
+
 tr.strikeout {
     /* http://www.patternify.com/ */
     background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAUAAAAFCAYAAACNbyblAAAABHNCSVQICAgIfAhkiAAAABdJREFUCFtjZMACGPEJ/keSZMSrEsUUADiYAQYtSGpXAAAAAElFTkSuQmCC');
@@ -43,8 +47,4 @@ tr.strikeout {
 
 .strike-out {
     text-decoration: line-through;
-}
-
-.spacer {
-    height: 300px;
 }
