@@ -30,12 +30,12 @@ body {
     overscroll-behavior-y: contain;
 }
 
-.spacer {
-    height: 300px;
-}
-
 .nowrap {
     white-space: nowrap;
+}
+
+.spacer {
+    height: 300px;
 }
 
 tr.strikeout {

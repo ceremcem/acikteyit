@@ -7,7 +7,7 @@
     <meta name="google" content="notranslate">
     <link rel="icon" href="images/data-arrived.ico">
     <title>Açık Teyit</title>
-    <script>window.headStart = Date.now()</script>
+    <script>window.appStart = Date.now();</script>
     <script>if (typeof module === 'object') {window.module = module; module = undefined;}</script>
     <script id="vendor" src="js/vendor.js"></script>
     <script>if (window.module) module = window.module;</script>
@@ -32,33 +32,6 @@
           </div>
         </div>
       </div>
-      <script>
-oneDecimal = function(x){
-    return parseFloat(Math.round(x * 10) / 10).toFixed(1)
-}
-var appStart = Date.now()
-var estimatedVendorToAppSizeRatio = 0.5;
-headDuration = appStart - window.headStart;
-appDuration = estimatedVendorToAppSizeRatio * headDuration;
-interval = 100;
-update = function(){
-    try {
-        timer = document.getElementById("timer");
-        var left = appStart + appDuration - Date.now();
-        timer.innerHTML = oneDecimal(left/1000) + " s";
-        if (left > 0){
-            setTimeout(update, interval);
-        } else {
-            timer.innerHTML = "Opening..."
-        }
-    }
-    catch(e) {
-        setTimeout(update, interval)
-    }
-}
-update()
-
-      </script>
     </div>
     <script src="js/app.js"></script>
   </body>
